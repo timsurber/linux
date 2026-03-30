@@ -9,16 +9,24 @@
 	compatible = "radxa,rock-5b-plus", "rockchip,rk3588";
 
 	hdmirx_sound: hdmirx-sound {
-		compatible = "rockchip,hdmi";
-		rockchip,mclk-fs = <128>;
-		rockchip,format = "i2s";
-		rockchip,bitclock-master = <&hdmi_receiver>;
-		rockchip,frame-master = <&hdmi_receiver>;
-		rockchip,card-name = "rockchip,hdmirx-audio";
-		rockchip,cpu = <&i2s7_8ch>;
-		rockchip,codec = <&hdmi_receiver 0>;
-		rockchip,jack-det;
+		compatible = "simple-audio-card";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,mclk-fs = <128>;
+		simple-audio-card,bitclock-master = <&hdmirx_codec>;
+		simple-audio-card,frame-master = <&hdmirx_codec>;
+		simple-audio-card,name = "rockchip,hdmirx-audio";
 		status = "okay";
+
+		simple-audio-card,cpu {
+			sound-dai = <&i2s7_8ch>;
+			clocks = <&cru MCLK_I2S7_8CH_RX>;
+			system-clock-direction-out;
+		};
+
+		hdmirx_codec: simple-audio-card,codec {
+			sound-dai = <&hdmi_receiver>;
+			clocks = <&cru CLK_HDMIRX_AUD>;
+		};
 	};
 
 	rfkill-wwan {
@@ -101,7 +109,7 @@
 };
 
 &hdmi_receiver {
-	#sound-dai-cells = <1>;
+	#sound-dai-cells = <0>;
 };
 
 &pcie3x2 {

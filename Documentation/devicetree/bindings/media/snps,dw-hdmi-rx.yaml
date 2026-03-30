@@ -24,6 +24,9 @@ properties:
   reg:
     maxItems: 1
 
+  "#sound-dai-cells":
+    const: 0
+
   interrupts:
     maxItems: 3
 
@@ -103,6 +106,7 @@ examples:
     hdmi_receiver: hdmi-receiver@fdee0000 {
       compatible = "rockchip,rk3588-hdmirx-ctrler", "snps,dw-hdmi-rx";
       reg = <0xfdee0000 0x6000>;
+      #sound-dai-cells = <0>;
       interrupts = <GIC_SPI 177 IRQ_TYPE_LEVEL_HIGH 0>,
                    <GIC_SPI 178 IRQ_TYPE_LEVEL_HIGH 0>,
                    <GIC_SPI 179 IRQ_TYPE_LEVEL_HIGH 0>;

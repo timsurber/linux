@@ -2112,6 +2112,7 @@ static int hdmirx_register_audio_device(struct snps_hdmirx_dev *hdmirx_dev)
 	struct hdmi_codec_pdata codec_data = {
 		.ops = &hdmirx_audio_codec_ops,
 		.i2s = 1,
+		.no_i2s_playback = 1,
 		.max_i2s_channels = 8,
 		.data = hdmirx_dev,
 	};

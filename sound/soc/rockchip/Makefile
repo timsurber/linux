@@ -16,10 +16,7 @@ snd-soc-rockchip-max98090-y := rockchip_max98090.o
 snd-soc-rockchip-rt5645-y := rockchip_rt5645.o
 snd-soc-rk3288-hdmi-analog-y := rk3288_hdmi_analog.o
 snd-soc-rk3399-gru-sound-y := rk3399_gru_sound.o
-snd-soc-rockchip-hdmirx-sound-test-y := rockchip_hdmirx_sound_test.o
-
 obj-$(CONFIG_SND_SOC_ROCKCHIP_MAX98090) += snd-soc-rockchip-max98090.o
 obj-$(CONFIG_SND_SOC_ROCKCHIP_RT5645) += snd-soc-rockchip-rt5645.o
 obj-$(CONFIG_SND_SOC_RK3288_HDMI_ANALOG) += snd-soc-rk3288-hdmi-analog.o
 obj-$(CONFIG_SND_SOC_RK3399_GRU_SOUND) += snd-soc-rk3399-gru-sound.o
-obj-$(CONFIG_SND_SOC_ROCKCHIP_HDMIRX_SOUND_TEST) += snd-soc-rockchip-hdmirx-sound-test.o
