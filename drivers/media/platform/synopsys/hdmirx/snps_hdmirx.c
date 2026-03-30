@@ -3159,8 +3159,6 @@ static int hdmirx_probe(struct platform_device *pdev)
 						       V4L2_DEBUGFS_IF_AVI, hdmirx_dev,
 						       hdmirx_debugfs_if_read);
 
-	dev_info(dev, "AAAAA1: Synopsys HDMI RX driver loaded\n");							   
-
 	return 0;
 
 err_unreg_video_dev:
