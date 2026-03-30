@@ -93,4 +93,12 @@ config SND_SOC_RK3399_GRU_SOUND
 	  Say Y or M here if you want to add support multiple codecs for SoC
 	  audio on Rockchip RK3399 GRU boards.
 
+config SND_SOC_ROCKCHIP_HDMIRX_SOUND_TEST
+	tristate "ASoC support for Rockchip HDMI RX test card"
+	depends on OF
+	select SND_SOC_HDMI_CODEC
+	help
+	  Say Y or M here if you want to add support for the HDMI RX test
+	  sound card used to connect the Rockchip HDMI RX codec to an
+	  I2S/TDM capture controller.
 endmenu

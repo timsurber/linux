@@ -8,6 +8,19 @@
 	model = "Radxa ROCK 5B+";
 	compatible = "radxa,rock-5b-plus", "rockchip,rk3588";
 
+	hdmirx_sound: hdmirx-sound {
+		compatible = "rockchip,hdmi";
+		rockchip,mclk-fs = <128>;
+		rockchip,format = "i2s";
+		rockchip,bitclock-master = <&hdmi_receiver>;
+		rockchip,frame-master = <&hdmi_receiver>;
+		rockchip,card-name = "rockchip,hdmirx-audio";
+		rockchip,cpu = <&i2s7_8ch>;
+		rockchip,codec = <&hdmi_receiver 0>;
+		rockchip,jack-det;
+		status = "okay";
+	};
+
 	rfkill-wwan {
 		compatible = "rfkill-gpio";
 		label = "rfkill-m2-wwan";
@@ -79,8 +92,16 @@
 	};
 };
 
+&i2s7_8ch {
+	status = "okay";
+};
+
 &pcie30phy {
 	data-lanes = <1 1 2 2>;
+};
+
+&hdmi_receiver {
+	#sound-dai-cells = <1>;
 };
 
 &pcie3x2 {
